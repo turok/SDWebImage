@@ -55,7 +55,7 @@ static void FreeImageData(void *info, const void *data, size_t size) {
     
     do {
         UIImage *image;
-        if (iter.blend_method == WEBP_MUX_BLEND) {
+        if (iter.blend_method == WEBP_MUX_BLEND && images.count > 0) {
             image = [self sd_blendWebpImageWithOriginImage:[images lastObject] iterator:iter];
         } else {
             image = [self sd_rawWepImageWithData:iter.fragment];
